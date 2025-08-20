@@ -1,0 +1,10 @@
+streamlit
+librosa
+matplotlib
+numpy
+pandas
+Pillow
+torch
+torchvision
+faiss-cpu
+google-generativeai

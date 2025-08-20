@@ -1,0 +1,41 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env
+.venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Compiled shared objects
+*.dll
+*.so
+*.dylib
+*.lib
+*.pyd
+
+# Logs and debug
+*.log
+*.pot
+*.mo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE settings
+.vscode/
+.idea/
+
+# Data / datasets
+data/retrieved_examples/
+
+# System files
+.DS_Store
+Thumbs.db
