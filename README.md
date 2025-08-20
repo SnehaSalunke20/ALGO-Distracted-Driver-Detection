@@ -13,3 +13,5 @@ Pickle/Joblib files keep encoders & trained classifiers.
 CSV/JSON files keep metadata mappings
 
 In short: Data → Features → FAISS Retrieval + Classification → Final Prediction.
+
+retrived_example data -> https://drive.google.com/file/d/14i5DZBQimWeZB6vhAcHPs7BMsQHcJdXk/view?usp=drive_link
