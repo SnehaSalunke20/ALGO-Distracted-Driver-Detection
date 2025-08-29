@@ -206,5 +206,53 @@ def homepage_v3(_gettext):
         </div>
     """, unsafe_allow_html=True)
 
+    #usecases
+    st.markdown("""
+        <style>
+            .info-box {
+                margin-top: 30px;
+                padding: 20px;
+                background: linear-gradient(135deg, #ffffff 0%, #e6e9f0 100%);
+                border-radius: 15px;
+                color: #2c3e50;
+                text-align: center;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+                max-width: 1300px;
+                margin-left: auto;
+                margin-right: auto;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .info-box h2 {
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+            .info-box p {
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 1.6;
+            }
+            .info-box:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+         
+        <div class="info-box">
+           <h1 style="font-weight: 600; color: #0a4e8d; text-shadow: 0px 2px 4px rgba(0,0,0,0.2);">Audio Analytics Use cases in Other Industries</h1>
+            <h2>Transportation & Automotive </h2>
+            <p>
+                Detects engine issues through sound; analyzes driver voice for stress or fatigue detection
+            </p>
+            <h2> Banking & Finance  </h2>
+            <p>
+                Uses voice biometrics for fraud prevention; monitors calls for compliance and regulatory breaches.
+            </p>
+            <h2>Security & Surveillance</h2>
+            <p>
+                Recognizes gunshots, glass breaks, or aggression; strengthens authentication with voice recognition.
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
 
    

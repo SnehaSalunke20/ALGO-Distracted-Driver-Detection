@@ -666,14 +666,28 @@ elif st.session_state.option_menu in ["Demo", "デモ"]:  # ==_gettext('Demo Das
 
         custom_footer(_gettext)
 
-    with tab1:
-        demo_dashboard(_gettext)
-        st.write()
-        st.markdown("<br>", unsafe_allow_html=True) 
-        st.markdown("<br>", unsafe_allow_html=True) 
-        st.markdown("<br>", unsafe_allow_html=True) 
-        FAQSection(_gettext)
-        custom_footer(_gettext)
+        with tab1:
+            # Instead of calling demo_dashboard(_gettext) directly,
+            # we check which step to show from demo_dashboard.py
+            from dashboard import  demo_dashboard
+            from instructions import instructions_page
+
+            # Initialize the step flag
+            st.session_state.setdefault("show_dashboard", False)
+            if "page" not in st.session_state:
+                st.session_state["page"] = "instructions"
+            if st.session_state.show_dashboard:
+                demo_dashboard(_gettext)
+            else:
+                instructions_page(_gettext)
+
+            st.write()
+            st.markdown("<br>", unsafe_allow_html=True) 
+            st.markdown("<br>", unsafe_allow_html=True) 
+            st.markdown("<br>", unsafe_allow_html=True) 
+            FAQSection(_gettext)
+            custom_footer(_gettext)
+
 
 
 elif st.session_state.option_menu in ["Login", "ログイン"]:

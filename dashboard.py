@@ -11,6 +11,11 @@ def _clear_state():
         st.session_state[k] = None
 
 def demo_dashboard(_gettext):
+
+    if st.button("⬅️ Back", key="back_top"):
+        st.session_state["show_dashboard"] = False
+        st.rerun()
+
     st.session_state.setdefault("selected_audio_path", None)
     st.session_state.setdefault("diagnosis_result", None)
 
