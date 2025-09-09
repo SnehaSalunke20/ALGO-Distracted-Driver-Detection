@@ -50,8 +50,8 @@ def homepage_v3(_gettext):
     st.markdown(button_style, unsafe_allow_html=True)
 
     # Display Header
-    h1_text = "Respiratory Disease Detection Dashboard"
-    h2_text = "AI-powered analysis of respiratory sounds for faster, smarter health insights"
+    h1_text = "Distracted Driver Detection Dashboard"
+    h2_text = "AI-powered detection of distracted drivers to detect potential signs of distraction, providing immediate feedback for safety interventions."
 
     st.markdown(f"""
     <div style="text-align: center;">
@@ -66,24 +66,25 @@ def homepage_v3(_gettext):
         st.button("Try Demo", key='demo_button')
 
     # Load feature images
-    image1_base64 = image_to_base64("ui_assets/images/respiratory_1.jpg")
-    image2_base64 = image_to_base64("ui_assets/images/respiratory_2.jpg")
-    image3_base64 = image_to_base64("ui_assets/images/respiratory_4.jpg")
+    image1_base64 = image_to_base64("ui_assets/images/driver1.jpg")
+    image2_base64 = image_to_base64("ui_assets/images/driver2.jpg")
+    image3_base64 = image_to_base64("ui_assets/images/driver3.jpg")
 
     # Feature details
-    feature1_heading = "Real-Time Respiratory Analysis"
-    feature1_description = ("Instantly processes uploaded audio to detect potential respiratory issues, "
-                             "providing immediate feedback. This reduces diagnostic delays and supports "
-                             "quicker medical decisions, especially useful for telemedicine and remote health monitoring.")
+    feature1_heading = "Real-Time Distraction Alerts"
+    feature1_description = ("Instantly processes driver images to detect potential signs"
+                            "of distraction, providing immediate feedback for safety"
+                            "interventions and helping to correct dangerous behaviors as they happen.")
 
-    feature2_heading = "Spectrogram Visualization"
-    feature2_description = ("Generates high-quality spectrograms from audio inputs, allowing healthcare professionals "
-                             "to visually interpret respiratory sound patterns for more accurate and explainable diagnosis.")
+    feature2_heading = "Detailed Behavior Analysis"
+    feature2_description = ("Generates detailed reports on driver posture, gaze direction,"
+                            "and object interaction, allowing for a comprehensive and explainable"
+                            "safety assessment by fleet managers or researchers.")
 
-    feature3_heading = "AI-Powered Disease Prediction"
-    feature3_description = ("Utilizes advanced AI models to predict respiratory diseases based on audio features, "
-                             "enhancing diagnostic accuracy and enabling proactive healthcare measures. "
-                             "This feature supports conditions like asthma, COPD, and pneumonia.")
+    feature3_heading = "AI-Powered Risk Prediction"
+    feature3_description = ("Utilizes advanced AI models to predict high-risk behaviors based on"
+                            "visual cues, enabling proactive safety measures for individuals and"
+                            "commercial fleets to prevent accidents before they occur.")
     
 
     
@@ -138,17 +139,17 @@ def homepage_v3(_gettext):
         </style>
         <div class="features-container">
             <div class="card">
-                <img src="data:image/jpeg;base64,{image1_base64}" alt="Real-Time Respiratory Analysis">
+                <img src="data:image/jpeg;base64,{image1_base64}" alt="Real-Time Distraction Alerts">
                 <h3>{feature1_heading}</h3>
                 <p>{feature1_description}</p>
             </div>
             <div class="card">
-                <img src="data:image/jpeg;base64,{image2_base64}" alt="Spectrogram Visualization">
+                <img src="data:image/jpeg;base64,{image2_base64}" alt="Detailed Behavior Analysis">
                 <h3>{feature2_heading}</h3>
                 <p>{feature2_description}</p>
             </div>
             <div class="card">
-                <img src="data:image/jpeg;base64,{image3_base64}" alt="AI-Powered Disease Prediction">
+                <img src="data:image/jpeg;base64,{image3_base64}" alt="AI-Powered Risk Prediction">
                 <h3>{feature3_heading}</h3>
                 <p>{feature3_description}</p>
             </div>
@@ -187,21 +188,18 @@ def homepage_v3(_gettext):
         </style>
          
         <div class="info-box">
-           <h1 style="font-weight: 600; color: #0a4e8d; text-shadow: 0px 2px 4px rgba(0,0,0,0.2);">Use Cases of Respiratory Disease Analysis</h1>
-            <h2>Healthcare & Hospitals </h2>
+           <h1 style="font-weight: 600; color: #0a4e8d; text-shadow: 0px 2px 4px rgba(0,0,0,0.2);">Use Cases of Distracted Driver Detection</h1>
+            <h2>Fleet Management & Logistics</h2>
             <p>
-                AI-based respiratory analysis enables early diagnosis, remote monitoring, and real-time decision support for doctors.
-                It reduces hospital visits for chronic patients and improves accuracy in detecting asthma, COPD, or pneumonia
+                Monitor driver behavior to ensure safety compliance, reduce accidents, and lower insurance premiums for commercial vehicle fleets.
             </p>
-            <h2>Workplace Safety & Occupational Health  </h2>
+            <h2>Insurance & Telematics</h2>
             <p>
-                Monitors lung health of workers exposed to dust, fumes, or chemicals in industries.
-                Supports compliance, insurance claims reduction, and workplace air quality assessment.
+                Assess driver risk profiles based on real-world behavior to offer personalized insurance rates and promote safer driving habits.
             </p>
-            <h2>Public Health & Government </h2>
+            <h2>Automotive Safety Research</h2>
             <p>
-                Helps in large-scale screening and epidemic tracking 
-                Enables data-driven policy, resource allocation, and population health analytics.
+                Collect and analyze data on driver distraction to develop more effective advanced driver-assistance systems (ADAS) and in-car safety features.
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -237,21 +235,6 @@ def homepage_v3(_gettext):
             }
         </style>
          
-        <div class="info-box">
-           <h1 style="font-weight: 600; color: #0a4e8d; text-shadow: 0px 2px 4px rgba(0,0,0,0.2);">Audio Analytics Use cases in Other Industries</h1>
-            <h2>Transportation & Automotive </h2>
-            <p>
-                Detects engine issues through sound; analyzes driver voice for stress or fatigue detection
-            </p>
-            <h2> Banking & Finance  </h2>
-            <p>
-                Uses voice biometrics for fraud prevention; monitors calls for compliance and regulatory breaches.
-            </p>
-            <h2>Security & Surveillance</h2>
-            <p>
-                Recognizes gunshots, glass breaks, or aggression; strengthens authentication with voice recognition.
-            </p>
-        </div>
     """, unsafe_allow_html=True)
 
 

@@ -39,3 +39,7 @@ data/retrieved_examples/
 # System files
 .DS_Store
 Thumbs.db
+
+# .gitignore
+.streamlit/secrets.toml
+

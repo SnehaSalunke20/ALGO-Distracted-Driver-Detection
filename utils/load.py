@@ -148,9 +148,9 @@ def custom_footer(_gettext):
 
     # Load base64 images
     company_logo_base64 = load_base64_image("ui_assets/images/algo-logo.png")
-    ig_image = load_base64_image("ui_assets/images/instagram-logo-transparent.png")
-    linked_in_image = load_base64_image("ui_assets/images/linkedin-logo-transparent.png")
-    fb_image = load_base64_image("ui_assets/images/facebook-logo-png.png")
+    ig_image = load_base64_image("ui_assets/images/instagram.png")
+    linked_in_image = load_base64_image("ui_assets/images/linkedin.png")
+    fb_image = load_base64_image("ui_assets/images/facebook.png")
 
 
     st.markdown("---")
