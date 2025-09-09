@@ -64,17 +64,17 @@ your_project_folder/
 │       ├── driver_2.jpg
 │       ├── driver_3.jpg
 │       └── algo-logo.png
-└── utils/
-    ├── assets/
-    │   ├── facebook.png
-    │   ├── instagram.png
-    │   ├── linkedin.png
-    │   └── location.png
+        ├── facebook.png
+        ├── instagram.png
+        ├── linkedin.png
+        └── location.png
+|__ utils
     └── load.py             # Utility functions
 ├── app.py                  # Main application router
 ├── dashboard.py            # Logic for the "Demo" page
 ├── homepage.py             # Logic for the "Overview" page
 └── requirements.txt        # Python dependencies
+
 
 ## ⚙️ Setup and Installation
 Follow these steps to set up and run the project on your local machine.
