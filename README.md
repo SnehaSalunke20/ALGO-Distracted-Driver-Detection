@@ -46,36 +46,6 @@ AI Model: Google Gemini 1.5 Flash
 
 Core Libraries: google-generativeai, Pillow, streamlit-option-menu
 
-## 📁 Project Structure
-Here is the folder and file structure required to run this project correctly:
-
-your_project_folder/
-├── .streamlit/
-│   └── secrets.toml        # For storing the API key securely
-├── css/
-│   └── style.css           # Custom CSS styles
-├── ui_assets/
-│   └── images/
-│       ├── samples/
-│       │   ├── sample1.jpg
-│       │   ├── sample2.jpg
-│       │   └── sample3.jpg
-│       ├── driver_1.jpg      # Homepage feature images
-│       ├── driver_2.jpg
-│       ├── driver_3.jpg
-│       └── algo-logo.png
-        ├── facebook.png
-        ├── instagram.png
-        ├── linkedin.png
-        └── location.png
-|__ utils
-    └── load.py             # Utility functions
-├── app.py                  # Main application router
-├── dashboard.py            # Logic for the "Demo" page
-├── homepage.py             # Logic for the "Overview" page
-└── requirements.txt        # Python dependencies
-
-
 ## ⚙️ Setup and Installation
 Follow these steps to set up and run the project on your local machine.
 
