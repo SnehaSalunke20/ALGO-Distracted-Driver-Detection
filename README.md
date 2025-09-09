@@ -1,7 +1,8 @@
-Distracted Driver Detection System
+# Distracted Driver Detection System
+
 An AI-powered web application built with Streamlit and Google's Gemini Pro Vision model to analyze images of drivers and classify whether they are distracted or alert. This project provides a user-friendly interface for real-time driver safety analysis.
 
-📋 Table of Contents
+## 📋 Table of Contents
 Overview
 
 Features
@@ -16,12 +17,12 @@ How to Run
 
 Usage
 
-🌟 Overview
+## 🌟 Overview
 Driver distraction is a leading cause of traffic accidents. This application leverages the powerful multimodal capabilities of the Gemini Pro Vision AI to analyze visual data and identify common signs of distraction, such as phone use, looking away from the road, or interacting with passengers.
 
 The goal is to provide a tool that can be used for driver safety monitoring, research, or fleet management, offering immediate and actionable insights into driver behavior.
 
-✨ Features
+## ✨ Features
 Interactive UI: A clean and professional multi-page interface built with Streamlit.
 
 AI-Powered Analysis: Utilizes Google's Gemini Pro Vision model for accurate image analysis.
@@ -36,7 +37,7 @@ Detailed Feedback: The AI provides a clear classification ("Alert" or "Distracte
 
 Multi-Language Support: Basic setup for English and Japanese language options.
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 Backend: Python
 
 Frontend Framework: Streamlit
@@ -45,7 +46,7 @@ AI Model: Google Gemini 1.5 Flash
 
 Core Libraries: google-generativeai, Pillow, streamlit-option-menu
 
-📁 Project Structure
+## 📁 Project Structure
 Here is the folder and file structure required to run this project correctly:
 
 your_project_folder/
@@ -75,7 +76,7 @@ your_project_folder/
 ├── homepage.py             # Logic for the "Overview" page
 └── requirements.txt        # Python dependencies
 
-⚙️ Setup and Installation
+## ⚙️ Setup and Installation
 Follow these steps to set up and run the project on your local machine.
 
 1. Prerequisites
@@ -90,11 +91,11 @@ cd <your-repository-folder>
 3. Create a Virtual Environment
 It's highly recommended to use a virtual environment to manage project dependencies.
 
-# For macOS/Linux
+## For macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
 
-# For Windows
+## For Windows
 python -m venv venv
 venv\Scripts\activate
 
@@ -112,7 +113,7 @@ Inside the .streamlit folder, create a new file named secrets.toml.
 
 Open secrets.toml and add your API key in the following format:
 
-# .streamlit/secrets.toml
+## .streamlit/secrets.toml
 GOOGLE_API_KEY = "YOUR_GOOGLE_API_KEY_HERE"
 
 Important: Make sure to add .streamlit/secrets.toml to your .gitignore file to prevent your key from being uploaded to GitHub.
