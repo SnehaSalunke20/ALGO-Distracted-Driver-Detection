@@ -137,31 +137,75 @@ def demo_dashboard(_gettext):
     two-column layout for samples/uploads and analysis, and the footer/FAQ.
     """
     # --- Demo Page Header with Back Button and Readme Popup ---
+    # --- Demo Page Header with Back Button and Readme Popup ---
     app_title_name = _gettext("Distracted Driver Detection App")
     app_title_tagline = _gettext("AI-powered analysis of driver behavior for enhanced road safety")
-    back_button_text = _gettext("Back")
-    readme_button_text = _gettext("Readme")
-    readme_text = _gettext("""**Welcome to the Distracted Driver Detection App**
+    back_button_text = "Back" if st.session_state.lang == "en" else "戻る"
+    readme_button_text = "Readme" if st.session_state.lang == "en" else "お読みください"
 
-Let's begin by exploring the functionality with a sample image or your own by following the instructions below:
-
-1) **Upload an Image** — Utilize the file uploader to provide a clear photograph of a driver. Accepted formats are .jpg, .jpeg, and .png.
-
-2) **Click on 'Analyze Image'** — The system will process the image to identify patterns, driver focus, and possible distractions using the advanced Gemini AI model.
-
-3) **View Driver Insights** — The results will be displayed on the interface, including a classification ('Alert' or 'Distracted') and the specific reasoning for the conclusion.
-""")
+    # The full readme text is now included here
+    readme_text = _gettext(""" **Welcome to the Distracted Driver Detection App**""")
+                           
+    
+    # Convert the Markdown-formatted text to HTML to ensure it displays correctly
     readme_html = markdown.markdown(readme_text)
 
-    app_title_styles = """<style>...</style>""" # Omitted for brevity
-    app_title_html = f"""<div class="app-title-div">...</div>""" # Omitted for brevity
-    app_title_readme_html = f"""<dialog id="readme-dialog" class="readme-dialog"><div class="readme-dialog-text">{readme_html}</div></dialog>"""
-    app_title_readme_js = """<script>...</script>""" # Omitted for brevity
-    
-    st.markdown(app_title_styles + app_title_html + app_title_readme_html, unsafe_allow_html=True)
-    components.html(app_title_readme_js, height=0, width=0)
+    # The CSS for styling the header and the readme pop-up
+    app_title_styles = """
+    <style>
+        .app-title-div { padding: 0; padding-bottom: 2vh; text-align: center; position: relative; }
+        .app-title-button-link { text-decoration: none; }
+        .app-title-button { position: absolute; background-color: white; display: grid; grid-auto-flow: column; align-items: center; border-radius: 0.375rem; padding: 0.25rem 0.5rem; border: 2px solid black; }
+        .app-title-button:hover { background-color: #799BE6; color: white; border-color: #799BE6; }
+        .app-title-button img { height: 1.5rem; margin: 0 0.25rem; }
+        .app-title-button-back { top: 0; left: 0; }
+        .app-title-button-readme { top: 0; right: 0; cursor: pointer; }
+        .readme-dialog { z-index: -10; width: 70%; max-height: 60vh; margin-top: 20vh; overflow-y: auto; padding: 1rem; border: 2px solid #789BE6; transform: translate(0,-100%); transition: transform 1s; display: block; border-radius: 8px; }
+        .readme-dialog[open] { z-index: 10; transform: translate(0,0); pointer-events: inherit; }
+        .readme-dialog::backdrop { background-color: rgba(0, 0, 0, 0.5); }
+        .readme-dialog-text { padding: 1rem 2rem; font-family: 'Poppins', sans-serif; font-size: 1.1rem !important; }
+    </style>
+    """
 
+    # The HTML structure for the header
+    app_title_html = f"""
+    <div class="app-title-div">
+        <a target="_self" href="/" class="app-title-button-link">
+            <button class="app-title-button app-title-button-back">
+                <img alt="Back" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0Ij48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0yMjQgNDgwaDY0MGEzMiAzMiAwIDEgMSAwIDY0SDIyNGEzMiAzMiAwIDAgMSAwLTY0Ii8+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJtMjM3LjI0OCA1MTJsMjY1LjQwOCAyNjUuMzQ0YTMyIDMyIDAgMCAxLTQ1LjMxMiA0NS4zMTJsLTI4OC0yODhhMzIgMzIgMCAwIDEgMC00NS4zMTJsMjg4LTI4OGEzMiAzMiAwIDEgMSA0NS4zMTIgNDUuMzEyeiIvPjwvc3ZnPg==" />
+                <div>{back_button_text}</div>
+            </button>
+        </a>
+        <div class="app-title-text-div">
+            <h1 style="font-weight: 600; color: #0a4e8d; text-shadow: 0px 2px 4px rgba(0,0,0,0.2);">{app_title_name}</h1>
+            <h2 style="font-weight: 300; color: #555;">{app_title_tagline}</h2>
+        </div>
+        <button id="open-readme-dialog" class="app-title-button app-title-button-readme">
+            <div>{readme_button_text}</div>
+            <img alt="Readme" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjYgMjYiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTQgMEMxLjc5NSAwIDAgMS43OTUgMCA0djE4YzAgMi4yMDUgMS43OTUgNCA0IDRoMTNjMS4wNjMgMCAyLjUzOS0xLjUzNSA0LjI1LTMuMjgxYy4yNC0uMjQ0LjQ3LS40NzMuNzE5LS43MTljLjI0Ni0uMjQ4LjUwNi0uNTEuNzUtLjc1QzI0LjQ2NiAxOS41MzggMjYgMTguMDYzIDI2IDE3VjRjMC0yLjIwNS0xLjc5NS00LTQtNHptMCAyaDE4YTIgMiAwIDAgMSAyIDJ2MTNjMCAuOTk1LTEuMDAyIDEtMiAxaC0zYy0uNTUxIDAtMSAuNDQ5LTEgMXYzLjA2M2MwIC44ODcuMDAyIDEuNzUzLS43MTkgMS45MzdINGEyIDIgMCAwIDEtMi0yVjRhMiAyIDAgMCAxIDItMm0yLjgxMyA2QTEuMDAxIDEuMDAxIDAgMCAwIDcgMTBoMTJhMSAxIDAgMSAwIDAtMkg3YTEgMSAwIDAgMC0uMDk0IDBhMS4wMDEgMS4wMDEgMCAwIDAtLjA5MyAwbTAgNUExLjAwMSAxLjAwMSAwIDAgMCA3IDE1aDEwYTEgMSAwIDEgMCAwLTJIN2ExIDEgMCAwIDAtLjA5NCAwYTEuMDAxIDEuMDAxIDAgMCAwLS4wOTMgMCIvPjwvc3ZnPg==" />
+        </button>
+    </div>
+    """
+
+    # The HTML for the pop-up dialog, using the converted 'readme_html'
+    app_title_readme_html = f"""
+    <dialog id="readme-dialog" class="readme-dialog"><div class="readme-dialog-text">{readme_html}</div></dialog>"""
+
+    # The JavaScript to make the pop-up work
+    app_title_readme_js = """<script>
+        const dialog = window.parent.document.getElementById('readme-dialog');
+        const readmeButton = window.parent.document.getElementById('open-readme-dialog');
+        if(readmeButton) { readmeButton.addEventListener('click', () => { if(dialog) dialog.showModal(); }); }
+        if(dialog) { dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); }); }
+    </script>"""
+
+    # Render all the HTML and JS components to the screen
+    st.markdown(app_title_styles + app_title_html + app_title_readme_html, unsafe_allow_html=True)
+    components.html(app_title_readme_js, height=0)
+
+    # --- Sample Images & Main Layout ---
     st.markdown("---")
+
     
     # --- Main Two-Column Layout for Demo ---
     col1, col2 = st.columns([1, 1])
