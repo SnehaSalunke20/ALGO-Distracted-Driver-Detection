@@ -1,4 +1,5 @@
 streamlit
+streamlit-option-menu
 librosa
 matplotlib
 numpy
@@ -8,3 +9,7 @@ torch
 torchvision
 faiss-cpu
 google-generativeai
+python-gettext
+markdown
+PyYAML
+python-docx
